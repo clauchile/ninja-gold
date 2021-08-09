@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ninja Gold</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/estiloss.css' %}">
+</head>
+
+<body>
+
+
+    <div class="container bg-ligth p-0">
+        <div class="row mt-3 justify-content-left p-1">
+            <div class=" d-flex col-12 col col-sm-4 col-md-6 ">
+                <h3 class="me-1 p-0 aling-self-right">Tu oro</h3>
+                <p id="oro" class="text-end pe-2 border-2 border-warning">{{request.session.calculo}}</p>
+                <img class="mb-3" src="{% static 'img/moneda.png' %}" />
+                <a href="/reset" class="flex-inline d-block p-2 px-3 mb-3 ms-1 btn btn-primary border-2 border-warning">Reset</a>
+               
+            </div>
+
+
+        </div>
+        <div class="row d-flex justify-content-between m-0">
+            <div class="col-12 col col-sm-6  col-md-6 col-lg-3 caja p-5 border border-warning border-3 rounded m-0">
+                <h3>FARM</h3>
+                <h6>Gana entre 10-20</h6>
+                <form class="" action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="opcion" value="farm">
+                    <button type="submit" class=" btn btn-primary shadow ">¡Encuentra el oro!</button>
+                </form>
+            </div>
+
+            <div class="col-12 col col-sm-6  col-md-6 col-lg-3 caja p-5 border border-warning border-3 rounded m-0">
+                <h3>CAVE</h3>
+                <h6>Gana entre 5-10</h6>
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="opcion" value="cave">
+                    <button type="submit" class="btn btn-primary shadow">¡Encuentra el oro!</button>
+                </form>
+            </div>
+
+            <div class="col-12 col col-sm-6  col-md-6 col-lg-3 caja p-5 border border-warning border-3 rounded">
+                <h3>HOME</h3>
+                <H6>Gana entre 2-5</H6>
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="opcion" value="house">
+                    <button type="submit" class="btn btn-primary shadow">¡Encuentra el oro!</button>
+                </form>
+            </div>
+            <div class="col-12 col col-sm-6  col-md-6 col-lg-3 caja p-5 border border-warning border-3 rounded">
+                <h3>CASINO</h3>
+                <h6>Gana o pierde entre 0-50</h6>
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="opcion" value="casino">
+                    <button type="submit" class="btn btn-primary shadow">¡Encuentra el oro!</button>
+                </form>
+            </div>
+        </div>
+        <!-- <button type="text" ahref="/reset" class="btn btn-primary">Reset</button> -->
+        <div class="row mt-2">
+          
+            <button type="button" class="btn btn-warning position-relative">
+                Histórico de actividades <svg width="1em" height="1em" viewBox="0 0 16 16"
+                    class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill"
+                    fill="#212529" xmlns="http://www.w3.org/2000/svg">
+                    <!-- <---<path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg> -->
+            </button>
+
+            <div col-12 id="cajafinal">
+
+                {% for i in request.session.out %}
+                <p class="{{i.color}} mt-2">{{i.desc}}</p>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

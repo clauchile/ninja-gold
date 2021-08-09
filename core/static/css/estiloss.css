@@ -1,0 +1,66 @@
+.caja {
+    width: 300px;
+    /* border: 2px solid; */
+    /* border-color: blue; */
+    background-color: red;
+    display: inline-block;
+    /* margin: 3px; */
+    text-align: center;
+    min-height: 300px;
+    
+}
+
+.form{
+    vertical-align: bottom;
+
+}
+
+#oro{
+    width: 150px;
+    height: 50px;
+    border-color: blue;
+    border: 2px solid;
+    border-radius: 3px;
+    /* display: inline-block; */
+    /* margin-left: 5px; */
+    font-size: 30px;
+    background-color: greenyellow;
+    text-shadow: 0 0 3px #FF0000;
+    /* text-shadow-color: black; */
+    color: white;
+}
+
+#titulo_oro{
+    margin-left: 177px;
+
+}
+
+
+#titulo{
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#cajafinal{
+    width: 100%;
+    height: 200px;
+    border-radius: 3px;
+    /* display: inline-block; */
+    /* font-size: 20px; */
+    /* margin-right: 6px; */
+    border-color: blue;
+    border: 2px solid;
+    /* margin-left: 20px; */
+    overflow-y: scroll;
+    background-color: rgb(242, 245, 187);
+}
+
+#boton{
+    width:77.5%;
+}
+
+* img{
+    width:50px;
+    
+}
